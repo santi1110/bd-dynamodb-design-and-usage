@@ -35,8 +35,7 @@ easily accomplished in the Activity classes themselves when the time comes.
 
 ## Phase 0: Preliminaries
 
-1. Make sure `ada` is running with the credentials specified at the top of this README
-(should be your AWS account that ATA gave you for this unit).
+1. Make sure your using the proper credentials and that you are not writing to your own AWS, not your team account.
 1. Create the tables we'll be using for this activity by running these aws CLI commands:
    ```none
    aws cloudformation create-stack --region us-west-2 --stack-name dynamodbindexes-eventstable01 --template-body file://cloudformation/dynamodbindexdesignandusage/events_table.yaml --capabilities CAPABILITY_IAM
@@ -69,15 +68,24 @@ We are planning to expand our service with the following operation:
    * We plan to enhance this operation in the near future by allowing users to request 
      all events, cancelled events, or not cancelled events
 
-As a group, answer the questions in 
-`src/main/java/com/amazon/ata/dynamodbindexdesignandusage/resources/gsiDesign.txt`. Your recorder should 
-share their screen and document your group's answers in the doc. They will share the contents with the group at the end
-of this phase.
+### Questions
+We are planning to expand our service with the following operation:
+1. `GetEventsForOrganizer`
+   * Retrieve all `Event` data for a provided `organizerId`
+
+1. Which table contains the data necessary for the operation?
+2. Explain why we cannot use load or query on the base table to retrieve this data.
+3. Design the GSI we would create for `GetEventsForOrganizer`.
+   - What table would we create the GSI for?
+   - What is the partition key of the GSI?
+   - Does the GSI have a sort key? If so, what?
+   - What attributes from the base table need to be projected to the GSI?
+   - What are the pros/cons of using INCLUDE vs ALL for the attribute projection in this case?
+   - Which will you use?
+
 
 Phase 1 is complete when:
-* Your recorder has shared the answers with the group.
-* Each group member has updated the `src/main/java/com/amazon/ata/dynamodbindexdesignandusage/resources/gsiDesign.txt` 
-  file with the group's answers.
+* You have answered the above questions
 
 ## Phase 2: Add new GSI for `GetEventsForOrganizer`
 
@@ -168,11 +176,11 @@ more information about this index. You can do this by clicking on the table, and
 Answer these questions:
 
 1. What is the partition key?
-   - ANSWER: 
+
 1. What is the sort key, if any?
-   - ANSWER: 
+
 1. What attributes are projected into the index?
-   - ANSWER:
+
 
 Before we can write a query against the index, we need to update our `Invite` model to be aware of the index. 
 Update `Invite` to add the `@DynamoDBIndexHashKey` to your partition key, and the `@DynamoDBIndexRangeKey`
