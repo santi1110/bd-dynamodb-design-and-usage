@@ -84,8 +84,8 @@ Resources:
       Handler: index.handler
       Role:
         Fn::GetAtt: [ LambdaRole , "Arn" ]
-      # 2020-02-27: [bp] updated from nodejs10.x in case it matters
-      Runtime: nodejs12.x
+      # 2020-02-27: [bp] updated from nodejs10.x to 18.x
+      Runtime: nodejs18.x
       Timeout: 60
   DynamoDBIndexesClassroomMembers:
     Type: AWS::DynamoDB::Table
