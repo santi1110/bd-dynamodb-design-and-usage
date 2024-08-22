@@ -25,7 +25,7 @@ public class Phase3Test {
     private static final String ORGANIZER_ID_WITHOUT_EVENTS = "eventless-organizer-id";
 
     @BeforeEach
-    private void setup() {
+    public void setup() {
         getEventsForOrganizerActivity = ActivityProvider.provideGetEventsForOrganizerActivity();
         testDataProvider = new TestDataProvider();
     }

@@ -3,6 +3,7 @@ package com.amazon.ata.dynamodbindexdesignandusage.dao;
 import com.amazon.ata.dynamodbindexdesignandusage.dao.models.Event;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.KeyPair;
 
 import java.util.ArrayList;
@@ -96,7 +97,16 @@ public class EventDao {
      * @return List of Events (those found for the ID provided)
      */
     public List<Event> getEventsForOrganizer(String organizerId) {
+        Event event = new Event();
+        event.setOrganizerId(organizerId);
+
+        DynamoDBQueryExpression<Event> queryExpression = new DynamoDBQueryExpression<Event>()
+                .withHashKeyValues(event)
+                .withConsistentRead(false)
+                .withIndexName(Event.ORGANIZER_ID_TIME_INDEX);
+
+
         // TODO: PARTICIPANTS: in Phase 3, replace this stub with a query to your new index
-        return new ArrayList<>();
+        return new ArrayList<>(mapper.query(Event.class, queryExpression));
     }
 }

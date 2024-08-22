@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.544s</div>
+<div class="counter">3.852s</div>
 <p>duration</p>
 </div>
 </td>
@@ -73,7 +73,7 @@
 <a name="getInvitesForOrganizerActivity_hasEvents_returnsEvents()"></a>
 <h3 class="failures">getInvitesForOrganizerActivity_hasEvents_returnsEvents()</h3>
 <span class="code">
-<pre>com.amazonaws.services.dynamodbv2.model.ResourceNotFoundException: Requested resource not found (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ResourceNotFoundException; Request ID: 4D8T4P34TGKJ9VFQQLL11F2M03VV4KQNSO5AEMVJF66Q9ASUAAJG; Proxy: null)
+<pre>com.amazonaws.services.dynamodbv2.model.AmazonDynamoDBException: The table does not have the specified index: OrganizerIdTimeIndex (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ValidationException; Request ID: F5S0GAT88CHFTIS85CK1PLC24NVV4KQNSO5AEMVJF66Q9ASUAAJG; Proxy: null)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleErrorResponse(AmazonHttpClient.java:1819)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleServiceErrorResponse(AmazonHttpClient.java:1403)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeOneRequest(AmazonHttpClient.java:1372)
@@ -91,13 +91,13 @@
 	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.query(AmazonDynamoDBClient.java:3895)
 	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.query(DynamoDBMapper.java:1618)
 	at com.amazonaws.services.dynamodbv2.datamodeling.AbstractDynamoDBMapper.query(AbstractDynamoDBMapper.java:285)
-	at com.amazon.ata.dynamodbindexdesignandusage.dao.EventDao.getEventsForOrganizer(EventDao.java:108)
+	at com.amazon.ata.dynamodbindexdesignandusage.dao.EventDao.getEventsForOrganizer(EventDao.java:110)
 	at com.amazon.ata.dynamodbindexdesignandusage.activity.GetEventsForOrganizerActivity.handleRequest(GetEventsForOrganizerActivity.java:38)
 	at com.amazon.ata.dynamodbindexdesignandusage.integration.Phase3Test.getInvitesForOrganizerActivity_hasEvents_returnsEvents(Phase3Test.java:60)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
@@ -125,7 +125,7 @@
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -135,7 +135,7 @@
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -160,19 +160,19 @@
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
 	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy2/jdk.proxy2.$Proxy5.stop(Unknown Source)
+	at com.sun.proxy.$Proxy5.stop(Unknown Source)
 	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
@@ -180,10 +180,10 @@
 	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:831)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 </pre>
 </span>
 </div>
@@ -191,7 +191,7 @@
 <a name="getInvitesForOrganizerActivity_noEvents_returnsEmptyLIst()"></a>
 <h3 class="failures">getInvitesForOrganizerActivity_noEvents_returnsEmptyLIst()</h3>
 <span class="code">
-<pre>com.amazonaws.services.dynamodbv2.model.ResourceNotFoundException: Requested resource not found (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ResourceNotFoundException; Request ID: 19B3FFCC5637EDICP7G7CNN2CNVV4KQNSO5AEMVJF66Q9ASUAAJG; Proxy: null)
+<pre>com.amazonaws.services.dynamodbv2.model.AmazonDynamoDBException: The table does not have the specified index: OrganizerIdTimeIndex (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ValidationException; Request ID: I1VFOFI1F0EDG4B44T25DN9DS3VV4KQNSO5AEMVJF66Q9ASUAAJG; Proxy: null)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleErrorResponse(AmazonHttpClient.java:1819)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleServiceErrorResponse(AmazonHttpClient.java:1403)
 	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeOneRequest(AmazonHttpClient.java:1372)
@@ -209,13 +209,13 @@
 	at com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient.query(AmazonDynamoDBClient.java:3895)
 	at com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper.query(DynamoDBMapper.java:1618)
 	at com.amazonaws.services.dynamodbv2.datamodeling.AbstractDynamoDBMapper.query(AbstractDynamoDBMapper.java:285)
-	at com.amazon.ata.dynamodbindexdesignandusage.dao.EventDao.getEventsForOrganizer(EventDao.java:108)
+	at com.amazon.ata.dynamodbindexdesignandusage.dao.EventDao.getEventsForOrganizer(EventDao.java:110)
 	at com.amazon.ata.dynamodbindexdesignandusage.activity.GetEventsForOrganizerActivity.handleRequest(GetEventsForOrganizerActivity.java:38)
 	at com.amazon.ata.dynamodbindexdesignandusage.integration.Phase3Test.getInvitesForOrganizerActivity_noEvents_returnsEmptyLIst(Phase3Test.java:36)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
@@ -243,7 +243,7 @@
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -253,7 +253,7 @@
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -278,19 +278,19 @@
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
 	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy2/jdk.proxy2.$Proxy5.stop(Unknown Source)
+	at com.sun.proxy.$Proxy5.stop(Unknown Source)
 	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
@@ -298,10 +298,10 @@
 	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:831)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 </pre>
 </span>
 </div>
@@ -318,12 +318,12 @@
 </thead>
 <tr>
 <td class="failures">getInvitesForOrganizerActivity_hasEvents_returnsEvents()</td>
-<td class="failures">1.500s</td>
+<td class="failures">3.539s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">getInvitesForOrganizerActivity_noEvents_returnsEmptyLIst()</td>
-<td class="failures">0.044s</td>
+<td class="failures">0.313s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -336,7 +336,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.0.2</a> at Jan 21, 2022, 9:51:16 AM</p>
+<a href="http://www.gradle.org">Gradle 7.0.2</a> at 22 Aug 2024, 17:15:26</p>
 </div>
 </div>
 </body>
